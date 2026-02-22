@@ -1,0 +1,87 @@
+index.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Факт дня</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border-radius: 15px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #fact {
+      min-height: 60px;
+      font-size: 18px;
+      margin-bottom: 20px;
+      transition: opacity 0.4s ease;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #ffdd57;
+      color: #333;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #ffe680;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>💡 Факт дня</h1>
+    <div id="fact">Нажми кнопку, чтобы узнать факт</div>
+    <button onclick="newFact()">Новый факт</button>
+  </div>
+
+  <script>
+    const facts = [
+      "Осьминоги имеют три сердца 🐙",
+      "Мёд никогда не портится 🍯",
+      "У акул нет костей 🦈",
+      "Бананы — это ягоды 🍌",
+      "В космосе нет звуков 🚀",
+      "Человеческий мозг использует около 20% энергии тела 🧠"
+    ];
+
+    function newFact() {
+      const factBlock = document.getElementById("fact");
+      factBlock.style.opacity = 0;
+
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        factBlock.textContent = facts[randomIndex];
+        factBlock.style.opacity = 1;
+      }, 300);
+    }
+  </script>
+
+</body>
+</html
